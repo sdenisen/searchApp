@@ -1,0 +1,18 @@
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+<head>
+    <title>Title of the document</title>
+</head>
+
+<body>
+<h1>Поиск компонентов оборудования</h1>
+    <form action="/search_details" method="get">
+        <label for="items">Наименование: </label>
+        <input id="items" type="text" name="items">
+        <input type="submit" value="Поиск">
+    </form>
+<h4>{{ table_data }}</h4>
+</body>
+
+</html>
