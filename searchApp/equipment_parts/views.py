@@ -1,12 +1,13 @@
 from django.db.models.functions import Lower
 from django.shortcuts import render
-
-# Create your views here.
-from equipment_parts.models import Details
+from django_tables2 import RequestConfig
+from .models import Details
+from .Class_Table import DetailsTable
 
 
 def filter(request):
-    return render(request, "master_page.html")
+    table_view = DetailsTable(Details.objects.all()[:10])
+    return render(request, "master_page.html", {"table_view": table_view})
 
 
 def view_search_results(request):
@@ -20,6 +21,12 @@ def view_search_results(request):
         i_details = i_details.filter(full_name_lower__contains=a)
 
     table_data = i_details.values("asv_id", "full_name")
+
+    table_view = DetailsTable(table_data)
+    print(table_view)
+    # RequestConfig(request).configure(table_data)
+
     print (i_details.query)
 
-    return render(request, "master_page.html", {"table_data": table_data})
+    return render(request, "master_page.html", {"table_view": table_view})
+
