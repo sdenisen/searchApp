@@ -1,6 +1,5 @@
 from django.db.models.functions import Lower
 from django.shortcuts import render
-from django_tables2 import RequestConfig
 from .models import Details
 from .Class_Table import DetailsTable
 
@@ -24,9 +23,6 @@ def view_search_results(request):
 
     table_view = DetailsTable(table_data)
     print(table_view)
-    # RequestConfig(request).configure(table_data)
-
-    print (i_details.query)
-
+    print(i_details.query)
     return render(request, "master_page.html", {"table_view": table_view})
 
