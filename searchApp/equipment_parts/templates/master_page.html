@@ -1,18 +1,53 @@
+{% load static %}
 {% load render_table from django_tables2 %}
+
 <!doctype html>
 <html>
 <head>
-    <title>Title of the document</title>
+    <title>Компоненты</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static '/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static '/css/heroic-features.css' %}" rel="stylesheet">
 </head>
 
 <body>
-<h1>Поиск компонентов оборудования</h1>
-    <form action="/search_details" method="get">
-        <label for="items">Наименование: </label>
-        <input id="items" type="text" name="items">
-        <input type="submit" value="Поиск">
-    </form>
-{% render_table table_view %}
+<div class="bg-dark fixed-top text-white p-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-5">
+                <span class="navbar-brand">Поиск компонентов для оборудования</span>
+            </div>
+            <div class="col-lg-7">
+                <form class="form-inline" action="/search_details" method="get">
+                    <div class="form-row w-100">
+                        <div class="col-lg-10 col-md-10 col-sm-10">
+                            <input class="form-control form-control-sm w-100" id="items" type="text"
+                                   name="items">
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2">
+                            <input class="form-control form-control-sm w-100" type="submit" value="Найти">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="my-4 well">
+        {% render_table table_view %}
+    </div>
+
+</div>
+
+<script src="{% static '/jquery/jquery.min.js' %}"></script>
+<script src="{% static '/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 
 </html>
