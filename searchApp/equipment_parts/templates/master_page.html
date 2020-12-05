@@ -26,8 +26,8 @@
                 <form class="form-inline" action="/search_details" method="get">
                     <div class="form-row w-100">
                         <div class="col-lg-10 col-md-10 col-sm-10 col-10">
-                            <input class="form-control form-control-sm w-100" id="items" type="text"
-                                   name="items">
+                            <input class="form-control form-control-sm w-100" id="filter" type="text"
+                                   name="filter" value="{{ search_field }}">
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-2">
                             <input class="form-control form-control-sm w-100" type="submit" value="Найти">
@@ -40,10 +40,7 @@
 </div>
 
 <div class="container">
-    <div class="my-4 well">
         {% render_table table_view %}
-    </div>
-
 </div>
 
 <script src="{% static '/jquery/jquery.min.js' %}"></script>

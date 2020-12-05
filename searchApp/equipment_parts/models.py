@@ -4,9 +4,9 @@ from django.db import models
 # Create your models here.
 
 class Details(models.Model):
-    id = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    asv_id = models.IntegerField(blank=True, null=True)
-    full_name = models.TextField()
+    id = models.AutoField(verbose_name="#", auto_created=True, primary_key=True, serialize=False)
+    asv_id = models.IntegerField(verbose_name="ASV ключ", blank=True, null=True)
+    full_name = models.TextField(verbose_name="Наименование")
 
     class Meta:
         managed = False
