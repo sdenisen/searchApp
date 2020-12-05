@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from equipment_parts.views import filter, view_search_results
+from equipment_parts.views import view_search_results
 
 urlpatterns = [
-    path('', filter),
+    path('', view_search_results),
     path('search_details/', view_search_results),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
